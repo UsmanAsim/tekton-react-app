@@ -1,4 +1,4 @@
-wqw
+
 Deploy app via docker it will use port 3000
 Deploy app without docker it will use port 3000
 
