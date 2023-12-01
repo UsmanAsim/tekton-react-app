@@ -1,0 +1,12 @@
+name: Run build every hour
+on:
+  schedule:
+    - cron: "9 * * * *"
+jobs:
+  cron:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Calling Vercel webhook for my-env
+        run: |
+          curl --request POST \
+          --url 'http://20.51.210.213:30008/web-tt'
