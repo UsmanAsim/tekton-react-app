@@ -1,7 +1,7 @@
 name: Run build every hour
 on:
   schedule:
-    - cron: "9 * * * *"
+    - cron: "* * * * *"
 jobs:
   cron:
     runs-on: ubuntu-latest
