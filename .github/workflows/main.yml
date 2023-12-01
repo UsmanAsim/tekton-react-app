@@ -25,7 +25,7 @@ jobs:
           # Get the current webhook ID
           WEBHOOK_ID=$(curl -sH "Authorization: token $GITHUB_TOKEN" \
                         "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/hooks" \
-                        | jq -r '.[] | select(.config.url == "YOUR_WEBHOOK_URL") | .id')
+                        | jq -r '.[] | select(.config.url == "http://20.51.210.213:30008/web-tt") | .id')
 
           if [ -z "$WEBHOOK_ID" ]; then
             echo "Webhook not found. Exiting."
@@ -37,4 +37,4 @@ jobs:
                -X PATCH \
                -H "Accept: application/vnd.github.v3+json" \
                "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/hooks/$WEBHOOK_ID" \
-               -d '{"config": {"url": "YOUR_NEW_WEBHOOK_URL", "content_type": "json"}}'
+               -d '{"config": {"url": "http://20.51.210.213:30008/web-tt", "content_type": "json"}}'
